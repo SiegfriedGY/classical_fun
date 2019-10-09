@@ -48,7 +48,7 @@ public class MusicPieceReal {
     private Integer movement_num_fake02;
     private Integer movement_num_fake03;
 
-    private String file_path;
+    private String file_id;
 
     /// 难度级别：1-5增加
     private Integer difficulty;

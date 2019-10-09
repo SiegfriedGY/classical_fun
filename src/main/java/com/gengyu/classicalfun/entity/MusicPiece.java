@@ -30,7 +30,7 @@ public class MusicPiece {
     /// 需要提供混淆项
     private Integer movement_num;
 
-    private String file_path;
+    private String file_id;
 
     /// 难度级别：1-5增加
     private Integer difficulty;
