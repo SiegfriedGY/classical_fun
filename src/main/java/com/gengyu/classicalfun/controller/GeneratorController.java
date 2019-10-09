@@ -1,6 +1,7 @@
 package com.gengyu.classicalfun.controller;
 
 import com.gengyu.classicalfun.entity.MusicPiece;
+import com.gengyu.classicalfun.entity.MusicPieceReal;
 import com.gengyu.classicalfun.entity.ResponseResult;
 import com.gengyu.classicalfun.service.GeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class GeneratorController {
     @Autowired
     private GeneratorService generatorService;
 
-    @GetMapping("/general")
+    @GetMapping("/01")
     public ResponseResult<MusicPiece> generateGenerally(){
 
         MusicPiece musicPiece = generatorService.generatePieceRandomly();
@@ -23,7 +24,16 @@ public class GeneratorController {
         ResponseResult<MusicPiece> responseResult = new ResponseResult<>();
         responseResult.setCode(1).setMsg("success").setData(musicPiece);
         return responseResult;
+    }
 
+    @GetMapping("/02")
+    public ResponseResult<MusicPieceReal> generateGenerallyReal(){
+
+        MusicPieceReal musicPieceReal = generatorService.generatePieceRandomlyReal();
+
+        ResponseResult<MusicPieceReal> responseResult = new ResponseResult<>();
+        responseResult.setCode(1).setMsg("success").setData(musicPieceReal);
+        return responseResult;
     }
 
 

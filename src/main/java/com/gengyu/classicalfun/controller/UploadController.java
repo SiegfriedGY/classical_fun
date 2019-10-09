@@ -1,6 +1,7 @@
 package com.gengyu.classicalfun.controller;
 
 import com.gengyu.classicalfun.entity.MusicPiece;
+import com.gengyu.classicalfun.entity.MusicPieceReal;
 import com.gengyu.classicalfun.entity.ResponseResult;
 import com.gengyu.classicalfun.service.UploadService;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +22,11 @@ public class UploadController {
     @PostMapping("/01")
     public void saveMusicPiece(@RequestBody MusicPiece musicPiece){
         uploadService.savePiece(musicPiece);
+    }
+
+    @PostMapping("/02")
+    public void saveMusicPieceReal(@RequestBody MusicPieceReal realPiece){
+        uploadService.savePieceReal(realPiece);
     }
 
 
