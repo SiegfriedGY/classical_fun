@@ -7,9 +7,23 @@
 <body>
 
     请答题：<br>
-    <input type="radio" value="AAA" id="AAA" name="question1"><label for="AAA">这是AAA</label><br>
-    <input type="radio" value="AAA" id="BBB" name="question1"><label for="BBB">这是BBB</label><br>
-    <input type="radio" value="AAA" id="CCC" name="question1"><label for="CCC">这是CCC</label><br>
-    <input type="radio" value="AAA" id="DDD" name="question1"><label for="DDD">这是DDD</label><br>
+    <input type="radio" id="AAA" name="question1" value="0"><label for="AAA">这是AAA</label><br>
+    <input type="radio" id="BBB" name="question1" value="1"><label for="BBB">这是BBB</label><br>
+    <input type="radio" id="CCC" name="question1" value="0"><label for="CCC">这是CCC</label><br>
+    <input type="radio" id="DDD" name="question1" value="0"><label for="DDD">这是DDD</label><br>
+    <input type="button" onclick="answer()" value="确定">
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    function answer() {
+        var ans = $("input[name='question1']:checked").val();
+        // alert("选中的radio的值是：" + ans);
+        if (ans == 1){
+            alert('回答正确！');
+        } else {
+          alert('回答错误！');
+        }
+    }
+
+</script>
 </html>

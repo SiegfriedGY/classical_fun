@@ -1,7 +1,8 @@
 package com.gengyu.classicalfun.controller;
 
+import com.gengyu.classicalfun.entity.MusicPieceSimple;
 import com.gengyu.classicalfun.entity.MusicPiece;
-import com.gengyu.classicalfun.entity.MusicPieceReal;
+import com.gengyu.classicalfun.entity.QuestionVO;
 import com.gengyu.classicalfun.entity.ResponseResult;
 import com.gengyu.classicalfun.service.GeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,23 +17,23 @@ public class GeneratorController {
     @Autowired
     private GeneratorService generatorService;
 
+    // Simlple版，非实际
     @GetMapping("/01")
-    public ResponseResult<MusicPiece> generateGenerally(){
+    public ResponseResult<MusicPieceSimple> generateSimplePiece(){
 
-        MusicPiece musicPiece = generatorService.generatePieceRandomly();
-
-        ResponseResult<MusicPiece> responseResult = new ResponseResult<>();
-        responseResult.setCode(1).setMsg("success").setData(musicPiece);
+        MusicPieceSimple musicPieceSimple = generatorService.generateSimplePiece();
+        ResponseResult<MusicPieceSimple> responseResult = new ResponseResult<>();
+        responseResult.setCode(1).setMsg("success").setData(musicPieceSimple);
         return responseResult;
     }
 
+    // 产生一道题
     @GetMapping("/02")
-    public ResponseResult<MusicPieceReal> generateGenerallyReal(){
+    public ResponseResult<QuestionVO> generatePiece(){
 
-        MusicPieceReal musicPieceReal = generatorService.generatePieceRandomlyReal();
-
-        ResponseResult<MusicPieceReal> responseResult = new ResponseResult<>();
-        responseResult.setCode(1).setMsg("success").setData(musicPieceReal);
+        QuestionVO questionVO = generatorService.generateSinglePiece();
+        ResponseResult<QuestionVO> responseResult = new ResponseResult<>();
+        responseResult.setCode(1).setMsg("success").setData(questionVO);
         return responseResult;
     }
 

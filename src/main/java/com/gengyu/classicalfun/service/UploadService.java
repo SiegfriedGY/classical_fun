@@ -1,10 +1,10 @@
 package com.gengyu.classicalfun.service;
 
+import com.gengyu.classicalfun.entity.MusicPieceSimple;
 import com.gengyu.classicalfun.entity.MusicPiece;
-import com.gengyu.classicalfun.entity.MusicPieceReal;
 import com.gengyu.classicalfun.entity.PieceFile;
-import com.gengyu.classicalfun.repository.MusicPieceRealRepository;
 import com.gengyu.classicalfun.repository.MusicPieceRepository;
+import com.gengyu.classicalfun.repository.MusicPieceSimpleRepository;
 import com.gengyu.classicalfun.repository.PieceFileRepository;
 import com.gengyu.classicalfun.utils.DateUtil;
 import com.gengyu.classicalfun.utils.StringUtil;
@@ -38,30 +38,30 @@ public class UploadService {
     }
 
     @Autowired
-    private MusicPieceRepository musicPieceRepository;
+    private MusicPieceSimpleRepository musicPieceSimpleRepository;
 
     @Autowired
-    private MusicPieceRealRepository realRepository;
+    private MusicPieceRepository realRepository;
 
     @Autowired
     private PieceFileRepository pieceFileRepository;
 
-    public void savePiece(MusicPiece piece){
+    public void savePiece(MusicPieceSimple piece){
 
         String uuid = UUID.randomUUID().toString().replaceAll("-","");
         log.info("生成的UUID为:{}", uuid);
         piece.setUuid(uuid);
 
-        MusicPiece musicPiece = musicPieceRepository.save(piece);
+        MusicPieceSimple musicPieceSimple = musicPieceSimpleRepository.save(piece);
         log.info("已经入库");
     }
 
-    public void savePieceReal(MusicPieceReal realPiece){
+    public void savePieceReal(MusicPiece realPiece){
         String uuid = UUID.randomUUID().toString().replaceAll("-","");
         log.info("生成的UUID为:{}", uuid);
         realPiece.setUuid(uuid);
 
-        MusicPieceReal pieceReal = realRepository.save(realPiece);
+        MusicPiece pieceReal = realRepository.save(realPiece);
         if (null != pieceReal){
             log.info("已经入库！");
         } else {

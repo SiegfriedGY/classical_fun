@@ -17,18 +17,36 @@ public class MusicPiece {
     private Integer id;
 
     private String uuid;
+
+    /// 不用混淆项，每次都罗列全部periods
     private Integer composer_period;
 
     /// 需要提供混淆项
     private Integer composer_nation;
+    private Integer composer_nation_fake01;
+    private Integer composer_nation_fake02;
+    private Integer composer_nation_fake03;
     /// 需要提供混淆项
-    private Integer composer_name;
+    private Integer composer;
+    private Integer composer_fake01;
+    private Integer composer_fake02;
+    private Integer composer_fake03;
     /// 需要提供混淆项
     private Integer piece_genre;
+    private Integer piece_genre_fake01;
+    private Integer piece_genre_fake02;
+    private Integer piece_genre_fake03;
     /// 需要提供混淆项
     private String piece_name;
+    private String piece_name_fake01;
+    private String piece_name_fake02;
+    private String piece_name_fake03;
+
     /// 需要提供混淆项
     private Integer movement_num;
+    private Integer movement_num_fake01;
+    private Integer movement_num_fake02;
+    private Integer movement_num_fake03;
 
     private String file_id;
 
