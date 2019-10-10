@@ -1,7 +1,5 @@
 package com.gengyu.classicalfun.service;
 
-import com.gengyu.classicalfun.dict.Nation;
-import com.gengyu.classicalfun.dict.Period;
 import com.gengyu.classicalfun.entity.MusicPiece;
 import com.gengyu.classicalfun.entity.QuestionVO;
 import com.gengyu.classicalfun.repository.ComposerRepository;
@@ -10,10 +8,8 @@ import com.gengyu.classicalfun.repository.PeriodRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 @Service
 @Slf4j
