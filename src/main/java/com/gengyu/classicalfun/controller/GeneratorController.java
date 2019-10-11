@@ -1,14 +1,18 @@
 package com.gengyu.classicalfun.controller;
 
+import com.gengyu.classicalfun.dict.Nation;
 import com.gengyu.classicalfun.entity.MusicPieceSimple;
 import com.gengyu.classicalfun.entity.MusicPiece;
 import com.gengyu.classicalfun.entity.QuestionVO;
 import com.gengyu.classicalfun.entity.ResponseResult;
+import com.gengyu.classicalfun.repository.NationRepository;
 import com.gengyu.classicalfun.service.GeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/gen")

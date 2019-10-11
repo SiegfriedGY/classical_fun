@@ -2,11 +2,9 @@ package com.gengyu.classicalfun.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 import javax.persistence.*;
 
 @Data
-@Slf4j
 @Table(name="music_piece")
 @Entity
 @JsonIgnoreProperties(value={"hibernateLazyInitializer","handler","fieldHandler"})
@@ -41,7 +39,6 @@ public class MusicPiece {
     private String piece_name_fake01;
     private String piece_name_fake02;
     private String piece_name_fake03;
-
     /// 需要提供混淆项
     private Integer movement_num;
     private Integer movement_num_fake01;

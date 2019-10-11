@@ -10,7 +10,7 @@ public class QuestionVO {
     private Map<String, Integer> composer_nation;
     private Map<String, Integer> composer_name;
     private Map<String, Integer> piece_genre;
-    private Map<String, String> piece_name;
+    private Map<String, Integer> piece_name;
     private Map<String, Integer> movement_num;
     private String file_id;
     private Integer difficulty;
