@@ -87,6 +87,7 @@ public class GeneratorService {
         QuestionVO questionVO = new QuestionVO();
         // 【！！！】很奇怪，如果在service包里，@Service一个类，就可以，
         // 但如果在另一个包里，另一个类里，JPA的方法就会报空指针，不管给这个类注解@Service还是@Component
+        // 原因是：方法所在的类也必须使用@Autowired方式注入进来，而不能直接new一个对象来调用，也不能用静态方式调用！！！
         beanService.convertPieceToQuestionVO(piece, questionVO);
 
         return questionVO;

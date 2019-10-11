@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface FileRepository extends JpaRepository<PieceFile, Integer>{
 
-    @Query(value = "select from ", nativeQuery = true)
-    String queryFilePathByFileId(Integer fileId);
+    @Query(value = "select f.file_path from piece_file f where f.file_id=?1", nativeQuery = true)
+    String queryFilePathByFileId(String fileId);
 
 }
