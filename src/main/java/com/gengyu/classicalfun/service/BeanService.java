@@ -80,7 +80,7 @@ public class BeanService {
         // 6.设置movement
         Map<String, Integer> mvtMap = new HashMap<>();
         String mvtReal = movementRepository.queryMvtCodeByMvtNumber(piece.getMovement_num());
-        mvtMap.put(mvtReal,1);
+        mvtMap.put("第三乐章",1);
         mvtMap.put("错误movement01",0);
         mvtMap.put("错误movement02",0);
         mvtMap.put("错误movement03",0);

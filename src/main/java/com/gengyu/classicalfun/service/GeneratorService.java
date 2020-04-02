@@ -5,6 +5,7 @@ import com.gengyu.classicalfun.entity.MusicPiece;
 import com.gengyu.classicalfun.entity.QuestionVO;
 import com.gengyu.classicalfun.repository.MusicPieceRepository;
 import com.gengyu.classicalfun.repository.MusicPieceSimpleRepository;
+import com.gengyu.classicalfun.utils.ObjectUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,19 +41,8 @@ public class GeneratorService {
             log.info("现在的记录为空！");
             return new MusicPieceSimple();
         }
-        List<Integer> piecesIds = pieces.stream().map(e -> e.getId()).collect(Collectors.toList());
-        int pieceNum = piecesIds.size();
-        int index = random.nextInt(pieceNum);
-        log.info("目前记录总数为：{}", pieceNum);
-        Integer id = 1;
-        if (pieceNum != 0) {
-            id = piecesIds.get(index);
-            log.info("本次选出的id为：{}", id);
-        }
-
-        // 在数量范围内随机抽取
-        Optional<MusicPieceSimple> piece = musicPieceSimpleRepository.findById(id);
-        return piece.get();
+        MusicPieceSimple pieceSimple = ObjectUtil.selectRandomElement(pieces);
+        return pieceSimple;
     }
 
 
@@ -62,27 +52,15 @@ public class GeneratorService {
      */
     public QuestionVO generateSinglePiece(){
 
-        Random random = new Random();
-
         // 先读取表中数据的数量
         List<MusicPiece> pieces = pieceRepository.findAll();
         if (CollectionUtils.isEmpty(pieces)){
             log.info("现在的记录为空！");
             return new QuestionVO();
         }
-        List<Integer> pieceIds = pieces.stream().map(e -> e.getId()).collect(Collectors.toList());
-        int pieceNum = pieceIds.size();
-        log.info("目前记录总数为：{}", pieceNum);
 
-        Integer id = 1;
-        if (pieceNum != 0) {
-            int index = random.nextInt(pieceNum);
-            id = pieceIds.get(index);
-            log.info("本次选出的id为：{}", id);
-        }
+        MusicPiece piece = ObjectUtil.selectRandomElement(pieces);
 
-        // 在数量范围内随机抽取
-        MusicPiece piece = pieceRepository.findById(id).get();
         // 转换为QuestionVO
         QuestionVO questionVO = new QuestionVO();
         // 【！！！】很奇怪，如果在service包里，@Service一个类，就可以，

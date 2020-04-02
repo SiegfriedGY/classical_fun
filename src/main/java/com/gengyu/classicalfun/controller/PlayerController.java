@@ -21,7 +21,7 @@ public class PlayerController {
 
         log.info("现在调用service方法进行播放...");
         playerService.playTest();
-        log.info("播放完毕...");
+        log.info("播放完毕");
     }
 
     // 根据fileId播放对应的音频

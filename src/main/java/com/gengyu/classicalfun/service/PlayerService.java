@@ -19,7 +19,7 @@ public class PlayerService {
     private FileRepository fileRepository;
 
     public void playTest(){
-        String path = "D:"+File.separator+"temp"+ File.separator+"123.mp3";
+        String path = "D:"+File.separator+"temp"+ File.separator+"001.mp3";
         playMp3(path);
     }
 
@@ -36,7 +36,7 @@ public class PlayerService {
             log.info("文件不存在！");
             return;
         }
-        log.info("文件存在，现在播放！");
+        log.info("文件存在，现在播放...");
         FileInputStream fis= null;
         try {
             fis = new FileInputStream(file);

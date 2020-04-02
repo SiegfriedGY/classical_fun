@@ -32,7 +32,7 @@ public class MusicPieceSimple {
 
     private String file_id;
 
-    /// 难度级别：1-5增加
+    /// 难度级别：1-5递增
     private Integer difficulty;
 
 
