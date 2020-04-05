@@ -1,5 +1,6 @@
 package com.gengyu.classicalfun.controller;
 
+import com.gengyu.classicalfun.config.FileConfig;
 import com.gengyu.classicalfun.service.PlayerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,16 @@ public class PlayerController {
     @Autowired
     private PlayerService playerService;
 
+    @Autowired
+    private FileConfig fileConfig;
+
     @GetMapping("/mp3")
     public void playMp3(){
 
+        String filePath = fileConfig.getFilePath();
+        log.info("mp3文件的路径为：" + filePath);
         log.info("现在调用service方法进行播放...");
-        playerService.playTest();
+        playerService.playTest(filePath);
         log.info("播放完毕");
     }
 
@@ -31,6 +37,5 @@ public class PlayerController {
         playerService.playFile(fileId);
 
     }
-
 
 }

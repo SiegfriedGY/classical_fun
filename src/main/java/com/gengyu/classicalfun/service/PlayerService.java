@@ -18,9 +18,10 @@ public class PlayerService {
     @Autowired
     private FileRepository fileRepository;
 
-    public void playTest(){
-        String path = "D:"+File.separator+"temp"+ File.separator+"001.mp3";
-        playMp3(path);
+    public void playTest(String filePath){
+//        String path = "D:"+File.separator+"temp"+ File.separator+"001.mp3";
+//        playMp3(path);
+        playMp3(filePath);
     }
 
     public void playFile(String fileId){
