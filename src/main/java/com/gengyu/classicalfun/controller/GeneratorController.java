@@ -8,6 +8,7 @@ import com.gengyu.classicalfun.entity.ResponseResult;
 import com.gengyu.classicalfun.repository.NationRepository;
 import com.gengyu.classicalfun.service.GeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,6 +34,7 @@ public class GeneratorController {
 
     // 产生一道题
     @GetMapping("/02")
+    @CrossOrigin(origins = "*")
     public ResponseResult<QuestionVO> generatePiece(){
 
         QuestionVO questionVO = generatorService.generateSinglePiece();
